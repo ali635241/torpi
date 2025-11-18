@@ -1,0 +1,349 @@
+/* service/jobs/[id]/jobDetail.module.css (TAM KOD) */
+
+/* Genel container */
+.jobDetailContainer {
+  max-width: 1000px; 
+  margin: 0 auto;
+  padding: 30px;
+  animation: fadeIn 0.5s ease;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Yükleniyor / Hata */
+.loading { display: flex; align-items: center; justify-content: center; min-height: 80vh; font-size: 1.5rem; color: var(--gray-600); }
+.errorMessage { background-color: #ffebee; color: #c62828; border: 1px solid #ef9a9a; border-radius: 8px; padding: 15px; margin-bottom: 25px; font-weight: 500; text-align: center; }
+
+/* Header */
+.header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 15px; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--gray-200); }
+.title { font-size: 1.8rem; font-weight: 700; color: var(--gray-800); margin: 0; }
+/* Durum rozeti (Başlıkta) */
+.statusBadge { display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: white; margin-left: 10px; vertical-align: middle; }
+/* Renkler */
+.open { background-color: var(--gray-400, #9ca3af); }      
+.waiting { background-color: var(--yellow-500, #f59e0b); } 
+.progress { background-color: var(--blue-500, #3b82f6); }  
+.completed { background-color: var(--green-500, #22c55e); }
+.cancelled { background-color: var(--red-500, #ef4444); }  
+/* Geri butonu */
+.backButton { background-color: var(--gray-200); color: var(--gray-700); border: none; padding: 10px 15px; border-radius: 6px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; transition: background-color 0.3s ease; font-size: 0.9rem; height: fit-content; }
+.backButton:hover { background-color: var(--gray-300); }
+
+/* Ana Bilgi Kartları */
+.mainInfoGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px; }
+.infoCard { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.infoCard h3 { font-size: 1.1rem; font-weight: 600; color: var(--gray-700); margin-bottom: 15px; padding-bottom: 8px; border-bottom: 1px solid var(--gray-100); }
+.infoCard p { font-size: 0.9rem; color: var(--gray-800); margin-bottom: 8px; line-height: 1.5; }
+.infoCard p strong { font-weight: 600; color: var(--gray-500); margin-right: 5px; }
+
+/* Notlar Bölümü */
+.notesSection { background: var(--yellow-50, #fffbeb); border: 1px solid var(--yellow-200, #fde68a); padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+.notesSection h3 { font-size: 1.1rem; font-weight: 600; color: var(--yellow-800, #92400e); margin-bottom: 10px; }
+.notesSection p { font-size: 0.9rem; color: var(--yellow-900, #78350f); line-height: 1.6; }
+
+/* Aksiyon Butonları */
+.actionButtons { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px dashed var(--gray-200); }
+.actionButtonPrimary, .actionButtonSuccess, .actionButtonWarning, .actionButtonDanger { color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; transition: background-color 0.3s ease, transform 0.2s ease; font-size: 0.9rem; }
+.actionButtonPrimary:hover, .actionButtonSuccess:hover, .actionButtonWarning:hover, .actionButtonDanger:hover { transform: translateY(-2px); }
+.actionButtonPrimary { background-color: var(--blue-600, #2563eb); } 
+.actionButtonPrimary:hover { background-color: var(--blue-700, #1d4ed8); }
+.actionButtonSuccess { background-color: var(--green-600, #16a34a); } 
+.actionButtonSuccess:hover { background-color: var(--green-700, #15803d); }
+.actionButtonWarning { background-color: var(--yellow-500, #f59e0b); } 
+.actionButtonWarning:hover { background-color: var(--yellow-600, #d97706); }
+.actionButtonDanger { background-color: var(--red-600, #dc2626); } 
+.actionButtonDanger:hover { background-color: var(--red-700, #b91c1c); }
+
+/* Parça ve İşçilik Grid */
+.partsLaborGrid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-bottom: 40px; }
+@media (max-width: 768px) { .partsLaborGrid { grid-template-columns: 1fr; } }
+.sectionTitle { font-size: 1.3rem; font-weight: 600; color: var(--gray-800); margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.sectionTitle i { color: var(--primary-600); }
+
+/* Parça Bölümü */
+.partsSection { background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);}
+.partsList { list-style: none; padding: 0; margin: 0 0 20px 0; max-height: 200px; overflow-y: auto; }
+.partsList li { display: flex; justify-content: space-between; align-items: center; padding: 8px 5px; border-bottom: 1px dashed var(--gray-100); font-size: 0.9rem; color: var(--gray-700); }
+.partsList li:last-child { border-bottom: none; }
+.partsList li span { flex-grow: 1; margin-right: 10px; }
+
+/* Yeni Parça Ekleme Formu */
+.addPartForm { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr auto; gap: 10px; align-items: flex-end; }
+.addPartForm h4 { grid-column: 1 / -1; font-size: 1rem; margin-bottom: 10px; color: var(--gray-600); }
+.addPartForm input, .addPartForm select { padding: 8px 10px; border-radius: 5px; border: 1px solid var(--gray-300); font-size: 0.9rem; min-height: 38px; }
+.addPartForm button { padding: 8px 15px; border-radius: 5px; background-color: var(--primary-500); color: white; border: none; cursor: pointer; font-weight: 500; font-size: 0.9rem; height: 38px; }
+
+/* İşçilik Bölümü */
+.laborSection { background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.laborSection p { font-size: 0.95rem; color: var(--gray-700); margin-bottom: 15px; }
+.laborSection p strong { font-size: 1.1rem; color: var(--gray-900); }
+.addLaborForm { display: flex; gap: 10px; }
+.addLaborForm input { flex-grow: 1; padding: 8px 10px; border-radius: 5px; border: 1px solid var(--gray-300); font-size: 0.9rem; min-height: 38px; }
+.addLaborForm button { padding: 8px 15px; border-radius: 5px; background-color: var(--primary-500); color: white; border: none; cursor: pointer; font-weight: 500; font-size: 0.9rem; height: 38px; }
+
+/* Toplam Maliyet */
+.totalCostSection { background-color: var(--green-50, #f0fdf4); border: 1px solid var(--green-200, #bbf7d0); padding: 20px; border-radius: 8px; margin-top: 30px; text-align: right; }
+.totalCostSection h3 { font-size: 1.1rem; color: var(--green-700, #15803d); margin-bottom: 5px; }
+.totalCostSection strong { font-size: 1.8rem; font-weight: 700; color: var(--green-800, #166534); }
+
+/* === YENİ: Küçük Aksiyon Butonu (Parça Sil vb.) === */
+.actionButtonSmall {
+    background-color: transparent;
+    border: none;
+    color: var(--gray-400); 
+    padding: 4px; 
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.8rem; 
+    width: 24px; height: 24px; 
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    flex-shrink: 0; 
+}
+.actionButtonSmall:hover { background-color: var(--gray-100); color: var(--gray-600); }
+.deleteButtonSmall:hover { background-color: #ffebee; color: #c62828; }
+/* === YENİ STİL SONU === */
+
+
+/* Gerekli renk değişkenleri (globals.css'te yoksa) */
+:root {
+    --yellow-500: #f59e0b; --yellow-200: #fde68a; --yellow-800: #92400e; --yellow-900: #78350f;
+    --blue-500: #3b82f6; --blue-600: #2563eb; --blue-700: #1d4ed8;
+    --green-500: #22c55e; --green-600: #16a34a; --green-700: #15803d; --green-800: #166534; --green-50: #f0fdf4; --green-200: #bbf7d0;
+    --red-500: #ef4444; --red-600: #dc2626; --red-700: #b91c1c;
+    --gray-400: #9ca3af;
+}/* --- BU KODU jobDetail.module.css SONUNA EKLEYİN --- */
+
+/* İlişkili Belgeler Bölümü */
+.documentsSection {
+    margin-top: 40px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+/* Bu bölümdeki sectionTitle stilini güncelleyelim */
+.documentsSection .sectionTitle {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--gray-100);
+}
+.documentsSection .sectionTitle i { color: var(--purple-600, #7e22ce); } /* Farklı ikon rengi */
+
+.noDataSubMessage { /* Parça yok mesajıyla aynı stil */
+    font-size: 0.9rem;
+    color: var(--gray-500);
+}
+
+
+/* Belge Listesi */
+.documentList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.documentList li {
+    display: grid; /* İkon, bilgi ve aksiyonları hizala */
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 0; /* Üst/Alt padding */
+    border-bottom: 1px dashed var(--gray-100);
+}
+.documentList li:last-child {
+    border-bottom: none;
+}
+
+.docIcon {
+    font-size: 1.6rem; /* Biraz daha küçük */
+    width: 25px;
+    text-align: center;
+}
+.docIcon .fa-file-pdf { color: #e74c3c; }
+.docIcon .fa-file-image { color: #3498db; }
+
+.docInfo { display: flex; flex-direction: column; }
+.docFileName { font-weight: 500; color: var(--gray-800); margin-bottom: 3px; }
+.docMeta { font-size: 0.8rem; color: var(--gray-500); }
+
+.docActions { display: flex; gap: 8px; }
+
+/* Küçük Aksiyon Butonları (Parça sil ile aynı stil) */
+.actionButtonSmall {
+    background-color: transparent; border: none; color: var(--gray-400); padding: 4px;
+    border-radius: 50%; cursor: pointer; font-size: 0.8rem; width: 24px; height: 24px;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease; flex-shrink: 0;
+    text-decoration: none; /* Linkler için */
+}
+.actionButtonSmall:hover { background-color: var(--gray-100); color: var(--gray-600); }
+.deleteButtonSmall:hover { background-color: #ffebee; color: #c62828; }
+
+
+/* Gerekli renk değişkenleri (globals.css'te yoksa) */
+:root {
+     --purple-600: #7e22ce; /* Belge ikonu için */
+}/* --- BU KODU jobDetail.module.css SONUNA EKLE/GÜNCELLE --- */
+
+/* Bilgi Mesajı (Fatura durumu vb.) */
+.infoMessage {
+  background-color: var(--blue-50, #eff6ff); /* Açık Mavi */
+  color: var(--blue-700, #1d4ed8);         /* Koyu Mavi */
+  border: 1px solid var(--blue-200, #bfdbfe);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 25px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Toplam Maliyet Bölümü Stillerini Güncelle (Buton için) */
+.totalCostSection {
+    background-color: var(--green-50, #f0fdf4);
+    border: 1px solid var(--green-200, #bbf7d0);
+    padding: 20px 25px; /* Padding'i ayarla */
+    border-radius: 8px;
+    margin-top: 30px;
+    /* Butonu sağa, maliyeti sola almak için flex */
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+    flex-wrap: wrap; /* Küçük ekranda alt alta */
+    gap: 15px;
+}
+.totalCostSection div { /* Maliyet ve altındaki small etiketi için */
+    text-align: left; /* Sola yasla */
+}
+.totalCostSection h3 { 
+    font-size: 1.1rem; color: var(--green-700, #15803d); margin: 0 0 5px 0; /* Boşlukları ayarla */
+}
+.totalCostSection strong { 
+    font-size: 1.8rem; font-weight: 700; color: var(--green-800, #166534); 
+    display: block; /* Altındaki small için */
+}
+.totalCostSection small { 
+    display: block; margin-top: 5px; color: var(--gray-500); font-size: 0.8rem;
+}
+
+
+/* Fatura Oluştur Butonu */
+.invoiceButton {
+  background-color: var(--purple-600, #7e22ce); /* Mor renk */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 0.9rem;
+}
+.invoiceButton:hover:not(:disabled) {
+  background-color: var(--purple-700, #6b21a8);
+  transform: translateY(-2px);
+}
+.invoiceButton:disabled {
+  background: var(--gray-400);
+  cursor: not-allowed;
+  transform: none;
+}
+.invoiceButton i {
+    font-size: 1rem;
+}
+
+/* Belge stillerinin olduğundan emin ol */
+.documentsSection { /* ... */ }
+.documentList li { /* ... */ }
+/* ... */
+
+/* Gerekli renk değişkenleri (globals.css'te yoksa) */
+:root {
+     --blue-50: #eff6ff; --blue-200: #bfdbfe; --blue-700: #1d4ed8;
+     --purple-600: #9333ea; --purple-700: #7e22ce; /* Fatura butonu için mor tonları */
+}/* --- BU KODUN jobDetail.module.css SONUNDA OLDUĞUNDAN EMİN OLUN --- */
+
+/* Bilgi Mesajı (Fatura durumu vb.) */
+.infoMessage {
+  background-color: var(--blue-50, #eff6ff); /* Açık Mavi */
+  color: var(--blue-700, #1d4ed8);         /* Koyu Mavi */
+  border: 1px solid var(--blue-200, #bfdbfe);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 25px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Başarı mesajı (eğer eksikse) */
+.successMessage {
+  background-color: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7;
+  border-radius: 8px; padding: 15px; margin-bottom: 25px;
+  font-weight: 500; text-align: center;
+}
+
+/* Toplam Maliyet Bölümü Stillerini Güncelle (Buton için) */
+.totalCostSection {
+    background-color: var(--green-50, #f0fdf4);
+    border: 1px solid var(--green-200, #bbf7d0);
+    padding: 20px 25px; 
+    border-radius: 8px;
+    margin-top: 30px;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+    flex-wrap: wrap; 
+    gap: 15px;
+}
+/* Sol taraf (Maliyet bilgisi) */
+.totalCostSection div { 
+    text-align: left; 
+}
+.totalCostSection h3 { 
+    font-size: 1.1rem; color: var(--green-700, #15803d); margin: 0 0 5px 0; 
+}
+.totalCostSection strong { 
+    font-size: 1.8rem; font-weight: 700; color: var(--green-800, #166534); 
+    display: block; 
+}
+.totalCostSection small { 
+    display: block; margin-top: 5px; color: var(--gray-500); font-size: 0.8rem;
+}
+
+
+/* Fatura Oluştur Butonu */
+.invoiceButton {
+  background-color: var(--purple-600, #9333ea); /* Mor renk */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 0.9rem;
+}
+.invoiceButton:hover:not(:disabled) {
+  background-color: var(--purple-700, #7e22ce);
+  transform: translateY(-2px);
+}
+.invoiceButton:disabled {
+  background: var(--gray-400);
+  cursor: not-allowed;
+  transform: none;
+  opacity: 0.7; /* Devre dışı olduğunu daha net göster */
+}
+.invoiceButton i {
+    font-size: 1rem;
+}
+
+/* Gerekli renk değişkenleri (globals.css'te yoksa) */
+:root {
+     --blue-50: #eff6ff; --blue-200: #bfdbfe; --blue-700: #1d4ed8;
+     --purple-600: #9333ea; --purple-700: #7e22ce;
+     --green-50: #f0fdf4; --green-200: #bbf7d0; --green-700: #15803d; --green-800: #166534;
+}

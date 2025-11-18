@@ -1,0 +1,264 @@
+/* app/service/appointments/appointments.module.css (TAM KOD - Buton Stilleri Düzeltildi) */
+
+.appointmentsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  font-size: 1.5rem;
+  color: var(--gray-600);
+}
+
+.errorMessage {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 25px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* === HEADER STİLLERİ (DÜZELTİLDİ) === */
+.header {
+  display: flex;
+  justify-content: space-between; /* Sol ve sağa yasla */
+  align-items: center;
+  flex-wrap: wrap; /* Küçük ekranda alt alta */
+  gap: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin: 0;
+}
+
+.backButton {
+  background-color: var(--gray-200);
+  color: var(--gray-700);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: 0.85rem;
+  height: fit-content;
+}
+.backButton:hover {
+  background-color: var(--gray-300);
+}
+
+/* Sağ butonları grupla */
+.headerRightButtons {
+    display: flex;
+    flex-wrap: wrap; /* Mobilde alt alta inebilir */
+    gap: 15px; /* Butonlar arası boşluk */
+}
+
+/* Genel Buton Stili (Linkler için) */
+.actionButton {
+  background-color: var(--primary-600);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 0.95rem;
+}
+.actionButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+/* Yeni Randevu Ekle (Birincil Buton) */
+.addButton {
+  background-color: var(--primary-600);
+}
+.addButton:hover {
+  background-color: var(--primary-700);
+}
+
+/* Randevu Planla (İkincil Buton - Gri) */
+.schedulerButton {
+  background-color: var(--gray-600);
+  color: white;
+}
+.schedulerButton:hover {
+  background-color: var(--gray-700);
+}
+/* === HEADER STİLLERİ SONU === */
+
+
+/* Filtreleme alanı */
+.filters {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: var(--gray-50);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.filters label {
+    font-weight: 600;
+    color: var(--gray-700);
+}
+.filterSelect {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--gray-300);
+    min-width: 150px;
+}
+
+
+.noDataMessage {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--gray-500);
+  margin-top: 50px;
+  padding: 30px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+/* Tablo container */
+.tableContainer {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    overflow-x: auto;
+}
+
+/* Tablo stilleri */
+.appointmentTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.appointmentTable th,
+.appointmentTable td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-100);
+    vertical-align: middle;
+    white-space: nowrap; /* Kaydırma için önemli */
+}
+
+.appointmentTable th {
+    background-color: var(--gray-50);
+    color: var(--gray-600);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.appointmentTable tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.appointmentTable tbody tr:hover {
+    background-color: var(--gray-50);
+}
+
+.appointmentTable td {
+    font-size: 0.9rem;
+    color: var(--gray-800);
+}
+
+/* Durum Rozetleri */
+.statusBadge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    min-width: 90px;
+}
+/* Renkler */
+.pending { background-color: var(--yellow-500, #f59e0b); }
+.confirmed { background-color: var(--blue-500, #3b82f6); }
+.completed { background-color: var(--green-500, #22c55e); }
+.cancelled { background-color: var(--gray-500, #6b7280); }
+
+
+/* İşlemler sütunu */
+.actions {
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* Aksiyon butonları (tablo içindeki küçük ikonlar) */
+.actions .actionButton {
+    background-color: transparent;
+    border: none;
+    color: var(--gray-500);
+    padding: 6px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 8px;
+    width: 32px; height: 32px;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    text-decoration: none;
+}
+.actions .actionButton:hover { background-color: var(--gray-100); color: var(--gray-700); }
+.actions .actionButton:disabled { background-color: var(--gray-200); color: var(--gray-400); cursor: not-allowed; border-color: var(--gray-200); }
+.actions .actionButton:disabled:hover { background-color: var(--gray-200); }
+
+/* Buton Renkleri */
+.confirmButton:hover { background-color: #e8f5e9; color: #2e7d32; } /* Yeşilimsi */
+.cancelButton:hover { background-color: #fff1f2; color: #dc2626; } /* Kırmızımsı */
+.editButton:hover { background-color: #fef3c7; color: #b45309; } /* Sarımsı */
+.deleteButton:hover { background-color: #ffebee; color: #c62828; } /* Kırmızımsı */
+
+/* Gerekli renk değişkenleri (globals.css'te yoksa) */
+:root {
+    --yellow-500: #f59e0b;
+    --blue-500: #3b82f6;
+    --green-500: #22c55e;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --red-500: #ef4444;
+}

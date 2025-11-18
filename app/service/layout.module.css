@@ -1,0 +1,30 @@
+/* app/service/layout.module.css (TAM KOD - Daraltma Eklendi) */
+
+/* Ana layout container */
+.serviceLayout {
+    display: flex; 
+    min-height: 100vh;
+    background-color: var(--gray-100); 
+}
+
+/* Ana içerik alanı (Sidebar Açıkken) */
+.mainContent {
+    flex-grow: 1; 
+    margin-left: 260px; /* Açık sidebar genişliği kadar boşluk */
+    padding: 0; 
+    transition: margin-left 0.3s ease; /* Yumuşak geçiş */
+}
+
+/* === YENİ: Ana içerik alanı (Sidebar Kapalıyken) === */
+.mainContentCollapsed {
+    margin-left: 80px; /* Kapalı sidebar genişliği kadar boşluk */
+}
+/* === YENİ SONU === */
+
+/* Küçük ekranlar için opsiyonel stiller (şimdilik yorumda) */
+/* @media (max-width: 992px) {
+    .mainContent,
+    .mainContentCollapsed {
+        margin-left: 0; 
+    }
+} */

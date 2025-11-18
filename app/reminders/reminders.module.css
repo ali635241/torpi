@@ -1,0 +1,179 @@
+/* documents.module.css'den uyarlandı */
+.remindersContainer {
+  max-width: 1000px; /* Biraz daha geniş */
+  margin: 0 auto;
+  padding: 40px 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.loading { /* ... (öncekiyle aynı) ... */ }
+.header { /* ... (öncekiyle aynı) ... */ }
+.title { /* ... (öncekiyle aynı) ... */ }
+
+.addButton {
+  background-color: var(--primary-600);
+  color: white;
+  border: none;
+  /* --- Padding'i küçültelim --- */
+  padding: 8px 16px; 
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex; /* 'flex' yerine 'inline-flex' daha iyi olabilir */
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  /* --- Font boyutunu biraz küçültelim --- */
+  font-size: 0.9rem; 
+}
+.addButton:hover:not(:disabled) { background-color: var(--primary-700); }
+.addButton:disabled { background-color: var(--gray-400); cursor: not-allowed; }
+.filters {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: var(--gray-50);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.filters label {
+    font-weight: 600;
+    color: var(--gray-700);
+}
+.filterSelect {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--gray-300);
+    min-width: 150px;
+}
+
+
+.noRemindersMessage { /* ... (öncekiyle aynı) ... */ }
+.errorMessage { /* ... (öncekiyle aynı) ... */ }
+
+.remindersList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Hatırlatıcılar arası boşluk */
+}
+
+.reminderItem {
+  display: grid;
+  /* icon - info - status - actions */
+  grid-template-columns: auto 1fr auto auto; 
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid var(--primary-500); /* Varsayılan renk */
+  transition: box-shadow 0.3s ease;
+}
+.reminderItem:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Duruma göre sol kenar rengi */
+.reminderItem.pending { border-left-color: var(--primary-500); }
+.reminderItem.completed { border-left-color: #2ecc71; } /* Yeşil */
+.reminderItem.expired { border-left-color: #e74c3c; } /* Kırmızı */
+
+
+.reminderIcon { 
+    font-size: 1.5rem; 
+    color: var(--gray-500); /* Daha soluk */
+    width: 30px; 
+    text-align: center; 
+}
+/* Duruma göre ikon rengi */
+.reminderItem.pending .reminderIcon { color: var(--primary-500); }
+.reminderItem.completed .reminderIcon { color: #2ecc71; }
+.reminderItem.expired .reminderIcon { color: #e74c3c; }
+
+
+.reminderInfo { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 3px;
+}
+.reminderCarPlate { 
+    font-weight: 600; 
+    color: var(--gray-800); 
+    font-size: 1rem;
+}
+.reminderType { 
+    font-size: 0.9rem; 
+    color: var(--gray-600); 
+    text-transform: capitalize;
+}
+.reminderDate { 
+    font-size: 0.8rem; 
+    color: var(--gray-500); 
+}
+
+.reminderStatus {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Sağa yasla */
+    gap: 5px;
+}
+
+.statusBadge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px; /* Hap şeklinde */
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: white;
+}
+.statusBadge.pending { background-color: var(--primary-600); }
+.statusBadge.completed { background-color: #2ecc71; }
+.statusBadge.expired { background-color: #e74c3c; }
+
+.daysRemaining {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--primary-700);
+}
+.daysRemaining.expired {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+
+.reminderActions { 
+    display: flex; 
+    gap: 8px; 
+    align-items: center;
+}
+.actionButton { 
+    background-color: transparent; 
+    color: var(--gray-500); 
+    border: none; 
+    padding: 5px; 
+    border-radius: 50%; /* Yuvarlak buton */
+    cursor: pointer; 
+    font-size: 1rem; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    width: 32px; 
+    height: 32px; 
+    transition: background-color 0.2s ease, color 0.2s ease; 
+}
+.actionButton:hover { background-color: var(--gray-100); }
+
+.completeButton { /* Tamamlama butonu */ }
+.completeButton:hover { background-color: #e8f5e9; color: #2e7d32; } /* Yeşil hover */
+
+.deleteButton { /* Sil butonu */ }
+.deleteButton:hover { background-color: #ffebee; color: #c62828; } /* Kırmızı hover */

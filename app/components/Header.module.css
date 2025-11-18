@@ -1,0 +1,84 @@
+/* Header.module.css (TAM KOD - Tamamen JS Kontrollü Menü) */
+.header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky; top: 0; z-index: 100;
+}
+.headerContainer { max-width: 1200px; margin: 0 auto; padding: 0 20px; height: 70px; display: flex; justify-content: space-between; align-items: center; }
+
+/* Logo */
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.5rem; color: var(--primary-700); text-decoration: none; }
+.logoImage { border-radius: 4px; object-fit: contain; }
+
+/* Nav Links */
+.navLinks { display: flex; gap: 30px; align-items: center; }
+.navLinks a { text-decoration: none; color: var(--gray-700); font-weight: 500; padding: 8px 12px; border-radius: 6px; }
+.navLinks a:hover { color: var(--primary-600); background-color: var(--primary-50); }
+
+/* Sağ Buton/Menü Alanı */
+.loginBtn { position: relative; } /* Dropdown bunun içinde konumlanacak */
+
+/* Giriş Yap Butonu */
+.loginButtonMain { background-color: var(--primary-600); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.loginButtonMain:hover { background-color: var(--primary-700); }
+
+/* Profilim Butonu */
+.profileButton { background-color: transparent; color: var(--gray-700); border: none; padding: 10px 15px; border-radius: 6px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.95rem; }
+.profileButton:hover { background-color: var(--gray-100); color: var(--primary-700); }
+.profileButton i:first-child { font-size: 1.2rem; }
+.chevronIcon { font-size: 0.7rem; transition: transform 0.3s ease; margin-left: 5px; }
+/* .chevronOpen { transform: rotate(180deg); } JS state'ine göre ikon değişiyor */
+
+
+/* Açılır Menü (Varsayılan - Gizli) */
+.loginDropdown { 
+    position: absolute; top: calc(100% + 5px); right: 0; 
+    width: 200px; background: white; border-radius: 8px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+    overflow: hidden; 
+    opacity: 0; 
+    transform: translateY(-10px); 
+    pointer-events: none; /* Gizliyken tıklanamaz */
+    z-index: 10; 
+    transition: opacity 0.2s ease, transform 0.2s ease; 
+}
+
+/* === YENİ: Menüyü Gösteren Sınıf === */
+.loginDropdown.active { 
+    opacity: 1; 
+    transform: translateY(0); 
+    pointer-events: all; /* Görünür ve tıklanabilir */
+}
+/* === YENİ SONU === */
+
+/* --- ESKİ HOVER KURALI KALDIRILDI --- */
+/* @media (min-width: 769px) { 
+    .loginBtn:hover .loginDropdown { ... }
+} */
+/* --- ESKİ MOBİL AKTİF KURALI KALDIRILDI (.active ile birleşti) --- */
+/* .loginDropdown.mobileActive { ... } */
+
+
+/* Menü Linkleri ve Çıkış Butonu */
+.loginDropdown a, .loginDropdown button.logoutLink { 
+    display: block; width: 100%; padding: 12px 20px; text-decoration: none; 
+    color: var(--gray-700); font-weight: 500; display: flex; align-items: center; 
+    gap: 10px; background: none; border: none; cursor: pointer; 
+    text-align: left; font-size: 0.9rem; font-family: inherit; 
+}
+.loginDropdown a:hover, .loginDropdown button.logoutLink:hover { 
+    background-color: var(--primary-50); color: var(--primary-700); 
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .headerContainer { height: auto; padding: 15px 20px; flex-wrap: wrap; }
+    .navLinks { order: 3; width: 100%; justify-content: center; margin-top: 15px; gap: 15px; }
+    /* Ok ikonunu mobilde göster (Opsiyonel) */
+    /* .mobileOnlyChevron { display: inline-block; } */ /* JS'de ikon değiştiği için buna gerek kalmadı */
+}
+@media (max-width: 480px) {
+    .logo { font-size: 1.2rem; }
+    .navLinks { gap: 10px; font-size: 14px; }
+}

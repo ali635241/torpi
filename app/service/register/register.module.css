@@ -1,0 +1,451 @@
+/* service/register/register.module.css (TÜM FORM STİLLERİ) */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 50px 20px;
+  background-color: var(--gray-100);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+
+.logoIcon {
+  font-size: 36px;
+  background: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(243, 156, 18, 0.5);
+  color: #f39c12;
+}
+
+.logoText {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gray-800);
+}
+
+.title {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #0c2461;
+  text-align: center;
+}
+
+.subtitle {
+  color: var(--gray-600);
+  margin-bottom: 30px;
+  text-align: center;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.form {
+  width: 100%;
+  max-width: 800px; /* Geniş formlar için */
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* === YENİ: Form Bölüm Başlığı === */
+.formSectionTitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--gray-200);
+}
+.formSectionTitle:first-of-type {
+    margin-top: 0;
+}
+/* === STİL SONU === */
+
+
+.formRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+.formRow:last-of-type {
+    margin-bottom: 0;
+}
+
+.formGroup {
+  flex: 1 1 300px;
+  min-width: 250px;
+}
+/* Parça formu içindeki margin'leri sıfırla */
+.addPartForm .formGroup {
+    margin-bottom: 0;
+}
+
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--gray-700);
+  font-size: 0.9rem;
+}
+
+/* Tüm input/select/textarea tipleri */
+.formGroup input[type="text"],
+.formGroup input[type="email"],
+.formGroup input[type="tel"],
+.formGroup input[type="password"],
+.formGroup input[type="number"],
+.formGroup input[type="date"],
+.formGroup input[type="datetime-local"],
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #eaeaea;
+  border-radius: 8px;
+  font-size: 1rem;
+  min-height: 48px;
+  line-height: 1.5;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: inherit;
+  box-sizing: border-box; /* Padding'i dahil et */
+}
+.formGroup textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  border-color: #0c2461;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(12, 36, 97, 0.1);
+}
+
+/* Devre dışı input (Ayarlar sayfası için) */
+.disabledInput {
+    background-color: var(--gray-100);
+    color: var(--gray-500);
+    cursor: not-allowed;
+    border-color: var(--gray-200) !important;
+    box-shadow: none !important;
+}
+
+/* Select oku */
+.formGroup select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23777777%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 10px 10px;
+  padding-right: 40px;
+}
+.formGroup select:disabled {
+    background-color: var(--gray-100);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* KVKK Checkbox Grubu */
+.checkboxGroup {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 25px 0;
+  padding: 15px;
+  background-color: var(--gray-50);
+  border-radius: 8px;
+}
+.checkboxGroup input[type="checkbox"] {
+  margin-top: 5px;
+  min-width: 18px;
+  height: 18px;
+  accent-color: var(--primary-600);
+}
+.checkboxGroup label {
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+.checkboxGroup label a {
+    color: var(--primary-600);
+    text-decoration: underline;
+}
+
+/* Tekli Checkbox (Çalışan Düzenle - Aktif) */
+.checkboxGroupSingle {
+  display: flex;
+  align-items: center; 
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.checkboxGroupSingle input[type="checkbox"] {
+  min-width: 18px; 
+  height: 18px;
+  accent-color: var(--primary-600);
+}
+.checkboxGroupSingle label {
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  line-height: 1.5;
+  margin-bottom: 0; 
+  font-weight: 500;
+}
+
+
+/* Ana Form Butonu */
+.button {
+  background: linear-gradient(to right, #0c2461, #1e3799);
+  color: white;
+  border: none;
+  padding: 16px;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(12, 36, 97, 0.3);
+  margin-top: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(12, 36, 97, 0.4);
+}
+.button:disabled {
+  background: var(--gray-400);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Logo Yükleme Alanı (Ayarlar sayfası için) */
+.logoUploadArea {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.currentLogo {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px; 
+    object-fit: cover; 
+    border: 1px solid var(--gray-200);
+    background-color: var(--gray-50); 
+}
+.fileInput { /* Gizli dosya inputu */
+    display: none;
+}
+.uploadButton {
+    background: var(--primary-500); /* Ana mavi renk */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none; 
+    font-weight: 600; 
+    font-family: inherit; 
+    transition: background-color 0.3s ease;
+    width: auto; 
+    line-height: 1.5; 
+    min-height: 40px; 
+}
+.uploadButton:disabled {
+    background: var(--gray-300);
+    cursor: not-allowed;
+}
+.uploadButton:hover:not(:disabled) {
+    background: var(--primary-600);
+}
+.fileNameText {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    font-style: italic;
+    flex-basis: 100%; 
+    margin-top: -5px;
+}
+
+
+/* Geri Butonu Stili */
+.backButton {
+  background-color: var(--gray-200);
+  color: var(--gray-700);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+  height: fit-content;
+}
+.backButton:hover {
+  background-color: var(--gray-300);
+}
+
+/* Helper Text */
+.helperText {
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    margin-top: 8px;
+}
+.helperLink {
+    color: var(--primary-600);
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+/* Hata ve Başarı Mesajları */
+.errorMessage {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+.successMessage {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Loading Stili */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  font-size: 1.5rem;
+  color: var(--gray-600);
+}
+
+/* Footer Link */
+.footerText {
+  text-align: center;
+  margin-top: 30px;
+  color: var(--gray-600);
+}
+.link {
+  color: #0c2461;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 5px;
+}
+.link:hover {
+  text-decoration: underline;
+}
+
+
+/* === YENİ: İş Emri Ekleme Sayfası için Parça Stilleri === */
+.partsSection { 
+    background-color: var(--gray-50); 
+    padding: 20px; 
+    border-radius: 8px; 
+    border: 1px solid var(--gray-200);
+    margin-top: 10px; /* Başlıkla arasında boşluk */
+}
+.noDataSubMessage { 
+    font-size: 0.9rem;
+    color: var(--gray-500);
+    margin-bottom: 15px;
+}
+.partsList { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0 0 20px 0; 
+    max-height: 200px; 
+    overflow-y: auto; 
+}
+.partsList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 5px;
+    border-bottom: 1px dashed var(--gray-100);
+    font-size: 0.9rem;
+    color: var(--gray-700);
+}
+.partsList li span { flex-grow: 1; margin-right: 10px; }
+
+/* Küçük Sil Butonu */
+.actionButtonSmall {
+    background-color: transparent; border: none; color: var(--gray-400); 
+    padding: 4px; border-radius: 50%; cursor: pointer;
+    font-size: 0.8rem; width: 24px; height: 24px; 
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    flex-shrink: 0; 
+}
+.actionButtonSmall:hover { background-color: var(--gray-100); color: var(--gray-600); }
+.deleteButtonSmall:hover { background-color: #ffebee; color: #c62828; }
+
+/* Yeni Parça Ekleme Formu */
+.addPartForm { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 15px; 
+    align-items: flex-end; 
+    border-top: 1px solid var(--gray-200); 
+    padding-top: 15px; 
+}
+.addPartForm .formGroup {
+    margin-bottom: 0;
+    flex-grow: 1; 
+}
+.addPartForm .formGroup label {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+.addPartForm .formGroup input,
+.addPartForm .formGroup select {
+    min-height: 40px; 
+    padding: 8px 10px;
+    font-size: 0.9rem;
+}
+/* Parça Ekle Butonu */
+.addPartButton {
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: var(--primary-500);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    height: 40px; 
+}
+.addPartButton:hover {
+    background-color: var(--primary-600);
+}
+/* === STİL SONU === */

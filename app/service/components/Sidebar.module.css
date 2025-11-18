@@ -1,0 +1,106 @@
+/* Sidebar ana container */
+.sidebar {
+    width: 260px; 
+    height: 100vh; 
+    position: fixed; 
+    left: 0; top: 0;
+    background-color: var(--gray-800); 
+    color: var(--gray-200); 
+    display: flex; flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 100; 
+    transition: width 0.3s ease; /* Genişlik değişimi için animasyon */
+}
+
+/* === YENİ: Sidebar Daraltılmış Hali === */
+.sidebar.collapsed {
+    width: 80px; /* Sadece ikonlar sığacak kadar */
+}
+/* === YENİ SONU === */
+
+
+/* Logo Alanı */
+.logoArea {
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--gray-700);
+    display: flex; /* Logoyu ve butonu yan yana getir */
+    align-items: center;
+    justify-content: space-between; /* Butonu sağa yasla */
+    overflow: hidden; /* Daralınca yazı taşmasın */
+    transition: padding 0.3s ease; /* Daralınca padding değişsin */
+}
+/* Daralınca logo alanı */
+.sidebar.collapsed .logoArea {
+    padding: 20px 15px; /* Yan boşlukları azalt */
+    justify-content: center; /* İkonu ortala (toggle butonu gizlenecekse) */
+}
+
+
+.logoLink { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; font-size: 1.2rem; font-weight: 600; white-space: nowrap; /* Yazı alt satıra inmesin */ }
+.logoLink i { font-size: 1.5rem; color: #f39c12; flex-shrink: 0; /* İkon küçülmesin */}
+/* Daralınca logo yazısını gizle (yukarıda JS ile yapıldı) */
+
+
+/* === YENİ: Kapatma/Açma Butonu === */
+.toggleButton {
+    background: none;
+    border: none;
+    color: var(--gray-400);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: auto; /* Mümkün olduğunca sağa it */
+    transition: color 0.2s ease, transform 0.3s ease;
+    border-radius: 4px;
+}
+.toggleButton:hover {
+    color: white;
+    background-color: var(--gray-700);
+}
+/* Daralınca butonu ortalamak için (opsiyonel, belki logo alanının dışına almak daha iyi?) */
+/* .sidebar.collapsed .toggleButton { margin-left: 0; } */
+/* === YENİ SONU === */
+
+
+/* Navigasyon Alanı */
+.nav { flex-grow: 1; overflow-y: auto; padding: 20px 0; }
+.nav ul { list-style: none; padding: 0; margin: 0; }
+.nav li { margin: 0; }
+
+/* Navigasyon Linkleri */
+.navLink {
+    display: flex; align-items: center; gap: 15px; 
+    padding: 12px 25px; margin: 5px 15px; 
+    border-radius: 6px; text-decoration: none;
+    color: var(--gray-300); font-size: 0.95rem; font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap; /* Yazı alt satıra inmesin */
+    overflow: hidden; /* Daralınca yazı taşmasın */
+}
+.navLink i { width: 20px; text-align: center; font-size: 1rem; color: var(--gray-400); transition: color 0.2s ease; flex-shrink: 0; }
+
+/* === YENİ: Daraltılmış Link Stilleri === */
+.sidebar.collapsed .navLink {
+    margin: 5px 10px; /* Yan boşlukları azalt */
+    padding: 12px 15px; /* İç boşluğu ayarla */
+    justify-content: center; /* İkonu ortala */
+}
+.sidebar.collapsed .navLink span {
+    /* display: none; */ /* Yazıyı gizle (JS ile yapıldı) */
+    opacity: 0; /* Animasyonlu gizleme */
+    width: 0;
+    overflow: hidden;
+}
+/* === YENİ SONU === */
+
+
+/* Link Üzerine Gelince */
+.navLink:hover { background-color: var(--gray-700); color: white; }
+.navLink:hover i { color: white; }
+
+/* Aktif Link */
+.navLink.active { background-color: var(--primary-600); color: white; font-weight: 600; }
+.navLink.active i { color: white; }
+
+/* Footer Alanı (Şimdilik boş) */
+.footerArea { padding: 20px 25px; border-top: 1px solid var(--gray-700); margin-top: auto; }

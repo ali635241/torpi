@@ -1,0 +1,161 @@
+/* Dashboard stillerine benzer */
+.carsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  font-size: 1.5rem;
+  color: var(--gray-600);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--gray-100);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gray-800);
+}
+
+.addButton {
+  background-color: var(--primary-600);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: 0.95rem;
+}
+.addButton:hover {
+  background-color: var(--primary-700);
+}
+
+.noCarsMessage {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--gray-500);
+  margin-top: 50px;
+}
+
+.carsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.carCard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  overflow: hidden; /* Header'ın taşmasını engelle */
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  background-color: var(--primary-50);
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plate {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--primary-800);
+  background-color: var(--primary-100);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.carType {
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+.carModel {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 15px 20px;
+}
+
+.carDetails {
+  padding: 0 20px 20px;
+  flex-grow: 1; /* Kartın altını doldur */
+}
+
+.carDetails p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  margin-bottom: 8px;
+}
+.carDetails p i {
+  color: var(--primary-600);
+  width: 15px; /* İkonları hizala */
+  text-align: center;
+}
+
+.cardActions {
+  border-top: 1px solid var(--gray-100);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: flex-end; /* Butonları sağa yasla */
+  gap: 10px;
+}
+
+.actionButton {
+  background-color: var(--gray-100);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.actionButton:hover {
+  background-color: var(--gray-200);
+}
+.editButton:hover {
+  background-color: var(--primary-100);
+  color: var(--primary-700);
+  border-color: var(--primary-200);
+}
+.deleteButton:hover {
+  background-color: #ffebee; /* Kırmızımsı */
+  color: #c62828;
+  border-color: #ef9a9a;
+}

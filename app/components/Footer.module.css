@@ -1,0 +1,56 @@
+/* Orijinal HTML'de <footer> için stil bulunmuyordu. 
+  Sadece register sayfası içinde bir .footer stili vardı.
+  Bu nedenle tüm sitede çalışacak genel bir footer stili ekliyoruz.
+*/
+.footer {
+    background-color: var(--gray-900);
+    color: var(--gray-300);
+    padding: 60px 20px 20px;
+    margin-top: 60px; /* Sayfa içeriği ile araya boşluk */
+}
+
+.footerContainer {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.footerColumn h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.footerLinks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footerLinks li {
+    margin-bottom: 12px;
+}
+
+.footerLinks a {
+    text-decoration: none;
+    color: var(--gray-300);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footerLinks a:hover {
+    color: var(--primary-300);
+    transform: translateX(5px);
+}
+
+.footerBottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--gray-700);
+    color: var(--gray-400);
+    font-size: 0.9rem;
+}

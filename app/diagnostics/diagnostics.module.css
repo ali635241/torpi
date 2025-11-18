@@ -1,0 +1,147 @@
+/* profile.module.css'den uyarlandı */
+.diagnosticsContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn { /* ... */ }
+.loading { /* ... */ }
+.header { /* ... */ }
+.title { /* ... */ }
+.backButton { /* ... */ }
+.backButton:hover { /* ... */ }
+
+.description {
+    font-size: 1rem;
+    color: var(--gray-700);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: var(--blue-50, #eff6ff); /* Açık mavi arka plan */
+    border-left: 4px solid var(--primary-500);
+    border-radius: 4px;
+}
+.description strong {
+    font-weight: 600;
+}
+
+
+.form {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+}
+
+.formGroup { margin-bottom: 25px; }
+.formGroup label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--gray-700); font-size: 0.9rem; }
+
+.textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #eaeaea;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  min-height: 120px; /* Minimum yükseklik */
+  line-height: 1.6;
+  resize: vertical; /* Sadece dikeyde boyutlandırma */
+  font-family: inherit; /* Tarayıcı fontunu kullan */
+}
+.textarea:focus {
+  border-color: var(--primary-600);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+}
+
+.buttonContainer { margin-top: 20px; text-align: right; } /* Üst boşluğu azalttık */
+.submitButton { /* ... (profile.module.css ile aynı) ... */ }
+.submitButton:hover:not(:disabled) { /* ... */ }
+.submitButton:disabled { /* ... */ }
+
+.errorMessage { /* ... (profile.module.css ile aynı) ... */ }
+
+
+/* Sonuç Alanı */
+.resultContainer {
+    margin-top: 40px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--gray-100);
+    animation: fadeInResult 0.5s ease; /* Sonuç gelince animasyon */
+}
+
+@keyframes fadeInResult {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.resultTitle {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--primary-700);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.resultSection {
+    margin-bottom: 25px;
+}
+.resultSection h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.resultSection h3 i {
+    color: var(--primary-600);
+}
+.resultSection ul {
+    list-style: none; /* Madde işaretini kaldır */
+    padding-left: 0;
+}
+.resultSection li {
+    padding-left: 25px; /* Madde işareti için yer aç */
+    position: relative;
+    margin-bottom: 10px;
+    color: var(--gray-700);
+    line-height: 1.6;
+}
+.resultSection li::before { /* Özel madde işareti */
+    content: "\f00c"; /* Font Awesome Check ikonu */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: var(--primary-500);
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+.disclaimer {
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--gray-200);
+}
+
+/* Stil tanımları için gerekli helper'lar (profile.module.css'den) */
+/* Eğer global değillerse buraya kopyalanmalı */
+.loading { display: flex; align-items: center; justify-content: center; min-height: 80vh; font-size: 1.5rem; color: var(--gray-600); }
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid var(--gray-100); }
+.backButton { background-color: var(--gray-200); color: var(--gray-700); border: none; padding: 10px 15px; border-radius: 6px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; transition: background-color 0.3s ease; font-size: 0.9rem; }
+.backButton:hover { background-color: var(--gray-300); }
+.submitButton { background: linear-gradient(to right, var(--primary-600), var(--primary-700)); color: white; border: none; padding: 14px 30px; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(3, 105, 161, 0.3); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.submitButton:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 7px 20px rgba(3, 105, 161, 0.4); }
+.submitButton:disabled { background: var(--gray-400); cursor: not-allowed; box-shadow: none; }
+.errorMessage { background-color: #ffebee; color: #c62828; border: 1px solid #ef9a9a; border-radius: 8px; padding: 15px; margin-bottom: 25px; font-weight: 500; text-align: center; }
